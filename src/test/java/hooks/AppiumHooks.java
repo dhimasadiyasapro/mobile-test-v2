@@ -44,7 +44,7 @@ public class AppiumHooks {
         if (scenario.getStatus().equals("failed") || scenario.getStatus().equals("undefined")) {
             byte[] screen = AppiumDriverUtil.getScreenshot();
             scenario.embed(screen, "image/png");
-            String screenshotName = AppiumDriverUtil.writeScreenshotToFile(screen, scenario.getName().replaceAll(" ", "_"), null);
+            String screenshotName = AppiumDriverUtil.writeScreenshotToFileAbsolut(screen, scenario.getName().replaceAll(" ", "_"), null);
             logger.error("Scenario '" + scenario.getName() + "' FAILED, Screen shot: " + screenshotName);
             try {
                 Reporter.addScreenCaptureFromPath(screenshotName);

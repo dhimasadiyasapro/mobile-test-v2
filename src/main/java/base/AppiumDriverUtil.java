@@ -86,6 +86,11 @@ public class AppiumDriverUtil {
         return path;
     }
 
+    public static String writeScreenshotToFileAbsolut(byte[] screen, String nameTemplate, String path) {
+        String filePath = writeScreenshotToFile(screen, nameTemplate, path);
+        return new File(filePath).getAbsolutePath();
+    }
+
     public static byte[] getScreenshot() {
         return ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BYTES);
     }
